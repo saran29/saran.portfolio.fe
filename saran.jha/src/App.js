@@ -1,25 +1,24 @@
-import logo from './logo.svg';
 import './App.css';
-
+import Head from './header/head';
+import Banner from './body/banner';
+import AOS from "aos";
+import 'aos/dist/aos.css';
+import { useEffect } from 'react';
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    useEffect(() => {
+        AOS.init({
+          easing: "ease-out-cubic",
+          once: true,
+          offset: 50,
+        });
+      }, []);
+    
+return (
+  <>
+  <Head />
+  <Banner />
+</>
+);
 }
 
 export default App;
